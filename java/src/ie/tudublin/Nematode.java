@@ -76,6 +76,39 @@ public class Nematode {
         this.eyes = eyes;
     }
    
-    
-    
+
+    public void render(NematodeVisualiser pa)
+    {
+        float circleSize = 50;
+
+        float border = (pa.height - (length * circleSize)) / 2;
+        float y;
+        float x = pa.width / 2;
+
+        pa.ellipseMode(PApplet.CENTER);
+        pa.noFill();
+        pa.stroke(255);
+
+
+        for (int i = 0; i < length; i++)
+        {
+            y = PApplet.map(i, 0, length, border, pa.height - border);
+            pa.circle(x, y, circleSize);
+            if (limbs == true)
+            {
+                pa.line(x - circleSize / 2, y, x - circleSize / 2 - 15, y);
+                pa.line(x + circleSize / 2, y, x + circleSize / 2 + 15, y);
+            }
+
+            if (eyes == true)
+            {
+            pa.line(x-20, y-15, x-35, y-30);
+            pa.line(x+20, y-15, x+35, y-30);
+            pa.circle(x-37, y-32, 5);
+            pa.circle(x+37, y-32, 5);
+            }
+        }
+
+    }
 }
+

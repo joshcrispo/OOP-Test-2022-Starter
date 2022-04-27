@@ -2,6 +2,8 @@ package ie.tudublin;
 
 import java.util.ArrayList;
 
+import com.jogamp.opengl.FBObject.RenderAttachment;
+
 import processing.core.PApplet;
 import processing.data.Table;
 import processing.data.TableRow;
@@ -18,11 +20,36 @@ public class NematodeVisualiser extends PApplet
 			System.out.println(nT);
 		}
 	}
+
+	int choice = 0;
+
 	public void keyPressed()
-	{		
-		if (keyCode == LEFT)
+    {
+        if (keyCode == LEFT)
+        {
+            choice -= 1;
+            if ( choice== -1)
+            {
+                choice =12;
+            }
+        }
+
+        if (keyCode == RIGHT)
+        {
+            choice +=1;
+            if (choice==13)
+            {
+                choice=0;
+            }
+        }
+    }
+
+	public void drawNematodes()
+	{
+		for(Nematode nT:nematodes)
 		{
-		}		
+			nematodes.get(choice).render(this);
+		}
 	}
 
 
@@ -36,7 +63,6 @@ public class NematodeVisualiser extends PApplet
 		colorMode(HSB);
 		background(0);
 		smooth();
-		
 		loadNematodes();
 		printNematodes();				
 	}
@@ -55,6 +81,7 @@ public class NematodeVisualiser extends PApplet
 
 	public void draw()
 	{	
-
+		background(0);
+		drawNematodes();
 	}
 }
