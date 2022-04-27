@@ -25,23 +25,7 @@ public class NematodeVisualiser extends PApplet
 
 	public void keyPressed()
     {
-        if (keyCode == LEFT)
-        {
-            choice -= 1;
-            if ( choice== -1)
-            {
-                choice =12;
-            }
-        }
-
-        if (keyCode == RIGHT)
-        {
-            choice +=1;
-            if (choice==13)
-            {
-                choice=0;
-            }
-        }
+        
     }
 
 	public void drawNematodes()
