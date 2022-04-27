@@ -99,16 +99,44 @@ public class Nematode {
                 pa.line(x - circleSize / 2, y, x - circleSize / 2 - 15, y);
                 pa.line(x + circleSize / 2, y, x + circleSize / 2 + 15, y);
             }
+            
+        }
 
-            if (eyes == true)
-            {
+        int i = 0;
+        y = PApplet.map(i, 0, length, border, pa.height - border);
+        if (eyes == true)
+        {
             pa.line(x-20, y-15, x-35, y-30);
             pa.line(x+20, y-15, x+35, y-30);
             pa.circle(x-37, y-32, 5);
             pa.circle(x+37, y-32, 5);
-            }
         }
 
+        y = PApplet.map(length, 0, length, border, pa.height - border);
+        y -= circleSize;
+    
+        //gender thing
+        if (gender.contains("m")) {
+            pa.line(x, y + 20, x, y+ 40);
+            pa.circle(x, y + 44, 5);
+        }
+
+        if (gender.contains("f")) {
+            pa.circle(x, y, 20);
+        }
+
+        if (gender.contains("h")) {
+            pa.line(x, y + 20, x, y + 40);
+            pa.circle(x, y + 44, 5);
+            pa.circle(x, y, 20);
+        }
+
+        x = pa.width/2;
+        y = pa.height/2;
+
+        pa.triangle(x-300, y,x-200,y-50,x-200,y+50);
+        pa.triangle(x+300, y,x+200,y-50,x+200,y+50);
+        
     }
 }
 
