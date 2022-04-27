@@ -136,6 +136,10 @@ public class Nematode {
 
         pa.triangle(x-300, y,x-200,y-50,x-200,y+50);
         pa.triangle(x+300, y,x+200,y-50,x+200,y+50);
+
+        pa.textSize(40);
+        pa.textAlign(PApplet.CENTER);
+        pa.text(name, pa.width/2,150);
         
     }
 }
